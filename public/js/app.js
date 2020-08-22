@@ -14411,10 +14411,10 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./src/css/app.css":
-/*!*************************!*\
-  !*** ./src/css/app.css ***!
-  \*************************/
+/***/ "./resources/css/app.css":
+/*!*******************************!*\
+  !*** ./resources/css/app.css ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -14422,10 +14422,10 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./src/js/app.js":
-/*!***********************!*\
-  !*** ./src/js/app.js ***!
-  \***********************/
+/***/ "./resources/js/app.js":
+/*!*****************************!*\
+  !*** ./resources/js/app.js ***!
+  \*****************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -14444,14 +14444,14 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /***/ }),
 
 /***/ 0:
-/*!***********************************************!*\
-  !*** multi ./src/js/app.js ./src/css/app.css ***!
-  \***********************************************/
+/*!***********************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/css/app.css ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/duncan/Sites/antlers-fiddle/src/js/app.js */"./src/js/app.js");
-module.exports = __webpack_require__(/*! /Users/duncan/Sites/antlers-fiddle/src/css/app.css */"./src/css/app.css");
+__webpack_require__(/*! /Users/duncan/Sites/antlers-fiddle/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/duncan/Sites/antlers-fiddle/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })

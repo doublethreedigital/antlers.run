@@ -3,18 +3,19 @@
 > An online playground for Antlers, Statamic's templating language.
 
 ## How it works
-Behind the scenes, this application has its own installation of Statamic, located in the `statamic` folder. It get's cloned down during every deployment. During that time, the application is taken down for maintainance, as otherwise it would be unusable.
+This project is just a fairly barebones Laravel/Statamic application. There's no fancy controllers or anything, most stuff is just done in the `routes/web.php` file.
 
-When a user clicks the `Run` button, a POST request is sent to the `/submit` endpoint which gives the Antlers parser the template content and the front-matter data and it'll return a JSON response of the data.
+Although, you probably want to know how the parsing stuff actually works, after all that's what you came for. Basically, when the user hits the `Run` button in the front-end, a POST request will be made to the back-end with two params, the template data and some front matter. Both of those things get parsed using Statamic/Symfony's fanciness. The HTML contents of the template will be returned as part of a JSON response which will be shown to the user.
 
 ## Installation
 
 1. Clone this repository `git@github.com:damcclean/antlers-fiddle.git`
-2. Point your web server to the `public` directory (Valet will do this for you by default)
-3. Install Statamic `composer create-project statamic/statamic statamic --prefer-dist --stability=dev`
-3. You might also want to install and compile front-end dependencies `npm install && npm run production`
+2. Install Composer dependencies `composer install`
+3. Copy the `.env.example` file to `.env`, then run `php artisan key:generate`
+4. Install and build front-end assets `npm install && npm run production`
 
 ## Features
-* [] Front-matter data
-* [] Ability to use tags, like `{{ if }}`
-* [] Ability to save & share fiddles
+* [ ] Front-matter data
+* [ ] Ability to use tags, like `{{ if }}`
+* [ ] Ability to save & share fiddles
+* [ ] Ability to login via Github?
