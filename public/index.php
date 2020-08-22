@@ -24,7 +24,7 @@ if ($method === 'GET' && $path === '/') {
     require __DIR__.'/../src/views/statamic-home.php';
 } elseif ($method === 'POST' && $path === '/submit') {
     $parse = (new \Statamic\View\Antlers\Parser)->parse(
-        $body['template'], ['text' => 'Hello world']
+        $body['template'], \Symfony\Component\Yaml\Yaml::parse($body['frontMatter'])
     );
 
     echo json_encode([

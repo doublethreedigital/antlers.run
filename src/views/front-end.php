@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Antlers Fiddle</title>
     <meta name="description" value="An online playground for Statamic's Antlers templating language.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css">
     <link rel="stylesheet" href="/css/app.css">
 </head>
-<body class="min-h-screen w-full overflow-hidden">
+<body class="min-h-screen w-full overflow-hidden font-fira">
     <header id="header" class="bg-statamic-hot-pink w-full flex flex-row items-center justify-between">
         <div class="px-6">
             <span class="text-white font-bold flex flex-row items-center">
@@ -24,12 +25,17 @@
 
     <main class="app-height w-full flex flex-row">
         <div class="md:w-1/2 h-full bg-black">
-            <textarea
-                id="template-editor"
-                cols="30"
-                rows="10"
-                class="w-full h-full bg-transparent focus:outline-none text-white"
-            ></textarea>
+            <div id="template-editor-container" class="w-full h-full" style="height: 70%;">
+                <textarea
+                    id="template-editor"
+                    class="h-full w-full"
+                ></textarea>
+            </div>
+            <div class="p-4 text-white" style="height: 30%;">
+                <span>---</span>
+                <textarea id="front-matter" class="w-full focus:outline-none bg-black" rows="6"></textarea>
+                <span>---</span>
+            </div>
         </div>
         <div id="result-area" class="md:w-1/2 h-full bg-white">
             <iframe
@@ -48,34 +54,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
     <script>
         const templateEditor = document.getElementById('template-editor')
+        const frontMatter = document.getElementById('front-matter')
         const result = document.getElementById('result-area')
+        const resultIframe = document.getElementById('result-iframe')
         const runButton = document.getElementById('run-button')
 
-        CodeMirror(templateEditor, {
+        var codemirror = CodeMirror.fromTextArea(templateEditor, {
             lineNumbers: true,
             tabSize: 2,
-            value: 'console.log("Hello, World");'
-        });
+            mode: 'javascript',
+            theme: 'synthwave-84'
+        })
 
         function run() {
-            templateEditor.readOnly = true
+            codemirror.setOption('readOnly', true)
+            frontMatter.readOnly = true
 
             let params = {
-                template: templateEditor.value
+                template: codemirror.getValue(),
+                frontMatter: frontMatter.value,
             }
 
             axios.post('/submit', params)
                 .then((response) => {
-                    console.log('good good')
+                    // result.innerHTML = response.data.result
+                    resultIframe.setAttribute('srcdoc', response.data.result)
+                    resultIframe.setAttribute('src', '')
 
-                    result.innerHTML = response.data.result
-                    templateEditor.readOnly = false
+                    codemirror.setOption('readOnly', false)
+                    frontMatter.readOnly = false
                 })
                 .catch((error) => {
-                    console.log('bad bad')
-
-                    alert('Template could not be parsed.')
-                    templateEditor.readOnly = false
+                    codemirror.setOption('readOnly', false)
+                    frontMatter.readOnly = false
                 })
         }
 

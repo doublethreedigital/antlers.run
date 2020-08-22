@@ -11,3 +11,16 @@
         height: calc(100vh - 56px);
     }
 }
+
+.font-fira {
+    font-family: 'Fira Code';
+}
+
+/* #template-editor-container .CodeMirror {
+    @apply h-full w-full;
+} */
+
+.CodeMirror {
+    width: 100% !important;
+    height: 100% !important;
+}
