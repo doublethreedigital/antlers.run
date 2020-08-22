@@ -13,5 +13,8 @@
         "laravel-mix": "^5.0.5",
         "tailwindcss": "^1.7.3",
         "vue": "^2.6.12"
+    },
+    "devDependencies": {
+        "vue-template-compiler": "^2.6.12"
     }
 }

@@ -3,3 +3,11 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@import "code-editor.css";
+
+@screen md {
+    .app-height {
+        height: calc(100vh - 56px);
+    }
+}
