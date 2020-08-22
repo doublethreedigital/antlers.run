@@ -1,11 +1,19 @@
-vendor
-.DS_Store
+/node_modules
+/public/hot
+/public/storage
+/public/vendor/statamic
+/storage/*.key
+/vendor
+.env
+.env.backup
 .phpunit.result.cache
-node_modules
-package-lock.json
-.php_cs.cache
-.idea
-mix-manifest.json
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.DS_Store
 
-# Ignore the statamic folder
-statamic
+mix-manifest.json
+public/mix-manifest.json
+
+users/*.yaml
