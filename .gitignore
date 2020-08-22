@@ -5,6 +5,7 @@ node_modules
 package-lock.json
 .php_cs.cache
 .idea
+mix-manifest.json
 
 # Ignore the statamic folder
 statamic
