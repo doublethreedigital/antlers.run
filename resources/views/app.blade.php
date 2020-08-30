@@ -78,7 +78,7 @@
             axios.post('/submit', params)
                 .then((response) => {
                     // result.innerHTML = response.data.result
-                    resultIframe.setAttribute('srcdoc', response.data.result)
+                    resultIframe.setAttribute('srcdoc', response.data)
                     resultIframe.setAttribute('src', '')
 
                     codemirror.setOption('readOnly', false)
