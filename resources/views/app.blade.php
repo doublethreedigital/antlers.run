@@ -87,6 +87,8 @@
                 .catch((error) => {
                     codemirror.setOption('readOnly', false)
                     frontMatter.readOnly = false
+
+                    alert(error)
                 })
         }
 

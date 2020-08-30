@@ -19,7 +19,8 @@ Route::view('/statamic-home', 'statamic-home');
 
 Route::post('/submit', function (Request $request) {
     $parse = (new \Statamic\View\Antlers\Parser)->parse(
-        $request->template, \Symfony\Component\Yaml\Yaml::parse($request->frontMatter)
+        $request->template,
+        \Symfony\Component\Yaml\Yaml::parse($request->frontMatter)
     );
 
     return [
