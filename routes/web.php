@@ -37,5 +37,13 @@ Route::post('/submit', function (Request $request) {
         'today' => $now,
     ]);
 
-    return view($requestId, $data)->render();
+    $response = view($requestId, array_merge(\Symfony\Component\Yaml\Yaml::parse($request->frontMatter), [
+        'current_date' => $now = now(),
+        'now' => $now,
+        'today' => $now,
+    ]))->render();
+
+    File::delete(str_replace('html.', 'html', $requestViewPath));
+
+    return $response;
 });
