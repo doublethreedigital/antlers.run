@@ -3,10 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Antlers Fiddle</title>
-    <meta name="description" value="An online playground for Antlers, Statamic's templating language.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css">
     <link rel="stylesheet" href="/css/app.css">
+    <!-- Primary Meta Tags -->
+    <title>Antlers Fiddle</title>
+    <meta name="title" content="Antlers Fiddle">
+    <meta name="description" content="An online playground for Antlers, Statamic's templating language.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://antlers-fiddle.duncanm.dev/">
+    <meta property="og:title" content="Antlers Fiddle">
+    <meta property="og:description" content="An online playground for Antlers, Statamic's templating language.">
+    <meta property="og:image" content="https://antlers-fiddle.duncanm.dev/social.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://antlers-fiddle.duncanm.dev/">
+    <meta property="twitter:title" content="Antlers Fiddle">
+    <meta property="twitter:description" content="An online playground for Antlers, Statamic's templating language.">
+    <meta property="twitter:image" content="https://antlers-fiddle.duncanm.dev/social.png">
 </head>
 <body class="min-h-screen w-full overflow-hidden font-fira">
     <header id="header" class="bg-statamic-hot-pink w-full flex flex-row items-center justify-between py-2">
