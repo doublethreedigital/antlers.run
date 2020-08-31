@@ -7,6 +7,16 @@
 @tailwind utilities;
 
 /**
+    Fonts
+*/
+
+@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
+
+.font-fira {
+    font-family: 'Fira Code';
+}
+
+/**
     Base/Common Styles
 */
 
@@ -14,10 +24,6 @@
     .app-height {
         height: calc(100vh - 56px);
     }
-}
-
-.font-fira {
-    font-family: 'Fira Code';
 }
 
 /**
