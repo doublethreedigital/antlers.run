@@ -2,10 +2,16 @@
 
 > An online playground for Antlers, Statamic's templating language.
 
-## How it works
-This project is just a fairly barebones Laravel/Statamic application. There's no fancy controllers or anything, most stuff is just done in the `routes/web.php` file.
+## About
 
-Although, you probably want to know how the parsing stuff actually works, after all that's what you came for. Basically, when the user hits the `Run` button in the front-end, a POST request will be made to the back-end with two params, the template data and some front matter. Both of those things get parsed using Statamic/Symfony's fanciness. The HTML contents of the template will be returned as part of a JSON response which will be shown to the user.
+The Antlers Fiddle is kidna like CodePen or JSFiddle but for Antlers, the templating language that comes from Statamic. You can set the Antlers template you want to parse and some front matter data you'd like to use.
+
+Under the hood, this project uses the *same* parser stuff that Statamic would use when parsing normal views in a normal site. However there are a few limitations:
+
+* There's no content, meaning you can't use the collection tags, reference globals or fetch assets (well technically you could but it might break)
+* You can't split stuff up into multiple files, so this rules out the ability to use layouts and partials.
+* You don't have access to as many variables, to see what there is, use the `{{ dump }}` tag.
+* And... obviously you can't use tags provided by addons because no addons are installed.
 
 ## Installation
 
@@ -13,9 +19,3 @@ Although, you probably want to know how the parsing stuff actually works, after 
 2. Install Composer dependencies `composer install`
 3. Copy the `.env.example` file to `.env`, then run `php artisan key:generate`
 4. Install and build front-end assets `npm install && npm run production`
-
-## Features
-* [ ] Front-matter data
-* [ ] Ability to use tags, like `{{ if }}`
-* [ ] Ability to save & share fiddles
-* [ ] Ability to login via Github?
