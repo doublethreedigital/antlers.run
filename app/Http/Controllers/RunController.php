@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Ramsey\Uuid\Uuid;
+use Symfony\Component\Yaml\Yaml;
 
 class RunController extends Controller
 {
@@ -45,9 +46,13 @@ class RunController extends Controller
 
     protected function parseView(): self
     {
+        $frontMatter = $this->request->frontMatter === null ?
+            [] :
+            Yaml::parse($this->request->frontMatter);
+
         $this->response = view(
             $this->requestId,
-            array_merge(\Symfony\Component\Yaml\Yaml::parse($this->request->frontMatter), [
+            array_merge($frontMatter, [
                 'current_date' => $now = now(),
                 'now' => $now,
                 'today' => $now,
