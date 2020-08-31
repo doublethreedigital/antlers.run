@@ -12,7 +12,7 @@
     <header id="header" class="bg-statamic-hot-pink w-full flex flex-row items-center justify-between py-2">
         <div class="px-6">
             <span class="text-white font-bold flex flex-row items-center">
-                <img class="mr-2 h-8" src="/img/statamic.svg" alt="Statamic">
+                <img class="mr-2 h-6" src="/img/statamic.svg" alt="Statamic">
                 Antlers Fiddle
             </span>
         </div>
