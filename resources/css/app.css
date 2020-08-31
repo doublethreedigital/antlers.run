@@ -1,10 +1,14 @@
+/**
+    Tailwind CSS
+*/
+
 @tailwind base;
-
 @tailwind components;
-
 @tailwind utilities;
 
-@import "code-editor.css";
+/**
+    Base/Common Styles
+*/
 
 @screen md {
     .app-height {
@@ -16,11 +20,57 @@
     font-family: 'Fira Code';
 }
 
-/* #template-editor-container .CodeMirror {
-    @apply h-full w-full;
-} */
+/**
+    Mobile-ness
+*/
+
+.h-half {
+    height: calc(100vh / 2);
+}
+
+/**
+    CodeMirror
+*/
+
+/* @import "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css"; */
+@import "codemirror/theme.css";
 
 .CodeMirror {
     width: 100% !important;
     height: 100% !important;
+}
+
+/**
+    Button component
+    - stolen from statamic.com
+*/
+
+.button {
+    --text-opacity: 1;
+    color: #002f3c;
+    color: rgba(0,47,60,var(--text-opacity));
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    --bg-opacity: 1;
+    background-color: #faf77d;
+    background-color: rgba(250,247,125,var(--bg-opacity));
+    border-radius: .25rem;
+    border-width: 2px;
+    box-shadow: 3px 3px 0 #002f3c;
+    padding: .25rem 1rem;
+    font-family: code-saver,monospace;
+    font-size: .875rem;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    white-space: nowrap;
+    transition-property: background-color,border-color,color,fill,stroke,opacity,box-shadow,transform;
+    text-align: center;
+    transition: all .05s ease-in!important;
+
+    /* &:hover {
+        box-shadow: 1px 1px 0 #002f3c;
+        transform: translate(2px,2px);
+    } */
 }

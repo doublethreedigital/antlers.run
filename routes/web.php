@@ -1,13 +1,7 @@
 <?php
 
-use Illuminate\Filesystem\Filesystem;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
+use App\Http\Controllers\RunController;
 use Illuminate\Support\Facades\Route;
-use Ramsey\Uuid\Uuid;
-use Statamic\View\Antlers\Engine;
-use Statamic\View\Antlers\Parser;
-use Statamic\Yaml\Yaml;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,28 +16,4 @@ use Statamic\Yaml\Yaml;
 
 Route::view('/', 'app');
 Route::view('/statamic-home', 'statamic-home');
-
-Route::post('/submit', function (Request $request) {
-    $requestId = Uuid::uuid6();
-
-    $requestViewPath = resource_path('views/'.$requestId.'.antlers.html');
-    $requestViewContents = '---'.PHP_EOL.$request->frontMatter.PHP_EOL.'---'.PHP_EOL.$request->template;
-
-    File::put($requestViewPath, $requestViewContents);
-
-    $data = array_merge(\Symfony\Component\Yaml\Yaml::parse($request->frontMatter), [
-        'current_date' => $now = now(),
-        'now' => $now,
-        'today' => $now,
-    ]);
-
-    $response = view($requestId, array_merge(\Symfony\Component\Yaml\Yaml::parse($request->frontMatter), [
-        'current_date' => $now = now(),
-        'now' => $now,
-        'today' => $now,
-    ]))->render();
-
-    File::delete(str_replace('html.', 'html', $requestViewPath));
-
-    return $response;
-});
+Route::post('/run', [RunController::class, '__invoke'])->name('run');

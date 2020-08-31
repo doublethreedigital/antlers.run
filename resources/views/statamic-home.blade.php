@@ -11,7 +11,7 @@
 <body class="bg-gray-200 font-sans leading-normal text-grey-800">
     <div class="mx-auto px-2 h-screen flex items-center justify-center">
         <div class="pb-16 text-center">
-            <a href="https://statamic.com">
+            <a href="https://statamic.com" target="_blank">
                 <svg id="statamic-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 272.1" width="400">
                     <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="99.153" y1="65.596" x2="150.124" y2="205.639">
                         <stop offset="0" stop-color="#da2fb6" />

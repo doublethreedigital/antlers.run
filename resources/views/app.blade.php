@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body class="min-h-screen w-full overflow-hidden font-fira">
-    <header id="header" class="bg-statamic-hot-pink w-full flex flex-row items-center justify-between">
+    <header id="header" class="bg-statamic-hot-pink w-full flex flex-row items-center justify-between py-2">
         <div class="px-6">
             <span class="text-white font-bold flex flex-row items-center">
                 <img class="mr-2 h-8" src="/img/statamic.svg" alt="Statamic">
@@ -17,27 +17,30 @@
             </span>
         </div>
 
-        <button
-            id="run-button"
-            class="py-4 px-12 bg-statamic-fresh-mint hover:bg-statamic-teal text-white text-center font-medium focus:outline-none"
-        >Run</button>
+        <div class="mx-6">
+            <button
+                id="run-button"
+                class="button"
+                @click="runCode"
+            >Run</button>
+        </div>
     </header>
 
-    <main class="app-height w-full flex flex-row">
-        <div class="md:w-1/2 h-full bg-black">
+    <main id="app" class="app-height w-full flex flex-col md:flex-row overflow-hidden">
+        <div class="w-full h-half md:w-1/2 md:h-full bg-black">
             <div id="template-editor-container" class="w-full h-full" style="height: 70%;">
                 <textarea
                     id="template-editor"
                     class="h-full w-full"
                 ></textarea>
             </div>
-            <div class="p-4 text-white" style="height: 30%;">
+            <div class="p-4 text-white overflow-hidden" style="height: 30%;">
                 <span>---</span>
                 <textarea id="front-matter" class="w-full focus:outline-none bg-black" rows="6"></textarea>
                 <span>---</span>
             </div>
         </div>
-        <div id="result-area" class="md:w-1/2 h-full bg-white">
+        <div id="result-area" class="w-full h-half md:w-1/2 md:h-full bg-white">
             <iframe
                 id="result-iframe"
                 src="/statamic-home"
@@ -75,19 +78,17 @@
                 frontMatter: frontMatter.value,
             }
 
-            axios.post('/submit', params)
+            axios.post('{{ route('run') }}', params)
                 .then((response) => {
                     // result.innerHTML = response.data.result
                     resultIframe.setAttribute('srcdoc', response.data)
                     resultIframe.setAttribute('src', '')
-
                     codemirror.setOption('readOnly', false)
                     frontMatter.readOnly = false
                 })
                 .catch((error) => {
                     codemirror.setOption('readOnly', false)
                     frontMatter.readOnly = false
-
                     alert(error)
                 })
         }
