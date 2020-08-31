@@ -70,6 +70,7 @@
                 allowfullscreen="false"
                 allowpaymentrequest="false"
                 referrerpolicy="no-referrer"
+                title="Result"
             ></iframe>
         </div>
     </main>
