@@ -17,11 +17,15 @@
             </span>
         </div>
 
-        <div class="mx-6">
+        <div class="mx-6 flex items-center">
+            <!-- <button
+                id="about-button"
+                class="text-white text-sm font-medium mr-6 focus:outline-none"
+            >About</button> -->
+
             <button
                 id="run-button"
-                class="button"
-                @click="runCode"
+                class="button focus:outline-none"
             >Run</button>
         </div>
     </header>
@@ -35,9 +39,9 @@
                 ></textarea>
             </div>
             <div class="p-4 text-white overflow-hidden" style="height: 30%;">
-                <span>---</span>
-                <textarea id="front-matter" class="w-full focus:outline-none bg-black" rows="6"></textarea>
-                <span>---</span>
+                <!-- <span>---</span> -->
+                <textarea id="front-matter" class="w-full focus:outline-none bg-black" rows="6" placeholder="# And your front matter (YAML) goes here"></textarea>
+                <!-- <span>---</span> -->
             </div>
         </div>
         <div id="result-area" class="w-full h-half md:w-1/2 md:h-full bg-white">
@@ -55,6 +59,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
+    <script src="https://codemirror.net/addon/display/placeholder.js"></script>
     <script>
         const templateEditor = document.getElementById('template-editor')
         const frontMatter = document.getElementById('front-matter')
@@ -66,7 +71,8 @@
             lineNumbers: true,
             tabSize: 2,
             mode: 'javascript',
-            theme: 'synthwave-84'
+            theme: 'synthwave-84',
+            placeholder: '<!-- Template code goes here... -->'
         })
 
         function run() {
@@ -80,15 +86,16 @@
 
             axios.post('{{ route('run') }}', params)
                 .then((response) => {
-                    // result.innerHTML = response.data.result
                     resultIframe.setAttribute('srcdoc', response.data)
                     resultIframe.setAttribute('src', '')
+
                     codemirror.setOption('readOnly', false)
                     frontMatter.readOnly = false
                 })
                 .catch((error) => {
                     codemirror.setOption('readOnly', false)
                     frontMatter.readOnly = false
+
                     alert(error)
                 })
         }
