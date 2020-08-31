@@ -15,9 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (str_contains('https', config('app.url'))) {
+        // if (str_contains('https', config('app.url'))) {
             URL::forceScheme('https');
-        }
+        // }
     }
 
     /**
