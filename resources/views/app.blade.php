@@ -18,10 +18,11 @@
         </div>
 
         <div class="mx-6 flex items-center">
-            <!-- <button
-                id="about-button"
+            <a
+                href="https://github.com/damcclean/antlers-fiddle"
+                target="_blank"
                 class="text-white text-sm font-medium mr-6 focus:outline-none"
-            >About</button> -->
+            >Github</a>
 
             <button
                 id="run-button"
