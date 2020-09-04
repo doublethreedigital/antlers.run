@@ -120,6 +120,7 @@
             let params = {
                 template: codemirror.getValue(),
                 frontMatter: frontMatter.value,
+                csrf_token: '{{ csrf_token() }}'
             }
 
             if (params.template === undefined || params.template === null || params.template === '') {

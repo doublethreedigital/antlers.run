@@ -17,6 +17,8 @@ class RunController extends Controller
 
     public function __invoke(Request $request)
     {
+        dd($request);
+
         $this->request = $request;
 
         $this
@@ -25,14 +27,23 @@ class RunController extends Controller
             ->parseView()
             ->removeTempView();
 
+        dd($this);
+
         return $this->response;
     }
 
     protected function initialPrep(): self
     {
+        dd('hhh');
+
         $this->requestId = Uuid::uuid4();
         $this->viewPath = resource_path('views/'.$this->requestId.'.antlers.html');
-        $this->viewContents = '---'.PHP_EOL.$this->request->frontMatter.PHP_EOL.'---'.PHP_EOL.$this->request->template;
+
+        if ($this->request->has('frontMatter')) {
+            $this->viewContents = '---'.PHP_EOL.$this->request->frontMatter.PHP_EOL.'---'.PHP_EOL.$this->request->template;
+        } else {
+            $this->viewContents = $this->request->template;
+        }
 
         return $this;
     }
@@ -40,6 +51,8 @@ class RunController extends Controller
     protected function storeTempView(): self
     {
         File::put($this->viewPath, $this->viewContents);
+
+        dd('hhh');
 
         return $this;
     }
@@ -49,6 +62,8 @@ class RunController extends Controller
         $frontMatter = $this->request->frontMatter === null ?
             [] :
             Yaml::parse($this->request->frontMatter);
+
+        dd('www');
 
         $this->response = view(
             $this->requestId,
