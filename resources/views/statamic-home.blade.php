@@ -1,12 +1,93 @@
-<!doctype html>
-<html lang="en">
+<style>
+    *,
+    ::after,
+    ::before {
+        box-sizing: border-box;
+        border-width: 0px;
+        border-style: solid;
+        border-color: rgb(226, 232, 240);
+    }
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-</head>
+    a {
+        color: inherit;
+        text-decoration: inherit;
+    }
+
+    a {
+        background-color: transparent;
+    }
+
+    body {
+        margin: 0px;
+    }
+
+    .leading-normal {
+        line-height: 1.5;
+    }
+
+    .font-sans {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    .bg-gray-200 {
+        --bg-opacity: 1;
+        background-color: rgba(237, 242, 247, var(--bg-opacity));
+    }
+
+    .mx-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .h-screen {
+        height: 100vh;
+    }
+
+    .justify-center {
+        justify-content: center;
+    }
+
+    .items-center {
+        align-items: center;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .pb-16 {
+        padding-bottom: 4rem;
+    }
+
+    .uppercase {
+        text-transform: uppercase;
+    }
+
+    .text-gray-600 {
+        --text-opacity: 1;
+        color: rgba(113, 128, 150, var(--text-opacity));
+    }
+
+    .text-xs {
+        font-size: 0.75rem;
+    }
+
+    .font-bold {
+        font-weight: 700;
+    }
+
+    .p-2 {
+        padding: 0.5rem;
+    }
+
+    .rounded {
+        border-radius: 0.25rem;
+    }
+</style>
 
 <body class="bg-gray-200 font-sans leading-normal text-grey-800">
     <div class="mx-auto px-2 h-screen flex items-center justify-center">
@@ -22,12 +103,9 @@
                 </svg>
             </a>
             <div class="text-xs font-bold uppercase text-gray-600 space-x-3">
-                <!-- <a class="hover:bg-gray-300 p-2 rounded" href="#">Control Panel</a> -->
                 <a class="hover:bg-gray-300 p-2 rounded" href="https://statamic.dev" target="_blank" rel="noopener noreferrer">Documentation</a>
                 <a class="hover:bg-gray-300 p-2 rounded" href="https://statamic.com/support" rel="noopener noreferrer">Get Support</a>
             </div>
         </div>
     </div>
 </body>
-
-</html>

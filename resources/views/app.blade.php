@@ -82,6 +82,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.js"></script>
     <script src="https://codemirror.net/addon/display/placeholder.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emmet-codemirror@1.2.5/dist/emmet.js"></script>
     <script>
         const templateEditor = document.getElementById('template-editor')
         const frontMatter = document.getElementById('front-matter')
@@ -94,7 +95,25 @@
             tabSize: 2,
             mode: 'javascript',
             theme: 'synthwave-84',
-            placeholder: '<!-- Template code goes here... -->'
+            placeholder: '<!-- Template code goes here... -->',
+            mode: 'text/html',
+            lint: true,
+            closeTag: true,
+            mode: 'htmlmixed',
+            extraKeys: {
+                'Tab': 'emmetExpandAbbreviation',
+                'Esc': 'emmetResetAbbreviation',
+                'Enter': 'emmetInsertLineBreak'
+            },
+            emmet: {
+                // emmetEnterAbbreviationMode: true,
+                // emmetExpandAbbreviation: true,
+                mark: true,
+                markTagPairs: true,
+                previewOpenTag: false,
+                autoRenameTags: true,
+                markupStyle: 'html',
+            }
         })
 
         function run() {
@@ -104,6 +123,11 @@
             let params = {
                 template: codemirror.getValue(),
                 frontMatter: frontMatter.value,
+            }
+
+            if (params.template === undefined || params.template === null || params.template === '') {
+                alert("Don't be silly, you can't parse nothing. Add something to your template and try again.")
+                return
             }
 
             axios.post('{{ route('run') }}', params)
