@@ -117,9 +117,6 @@
         })
 
         function run() {
-            codemirror.setOption('readOnly', true)
-            frontMatter.readOnly = true
-
             let params = {
                 template: codemirror.getValue(),
                 frontMatter: frontMatter.value,
@@ -129,6 +126,9 @@
                 alert("Don't be silly, you can't parse nothing. Add something to your template and try again.")
                 return
             }
+
+            codemirror.setOption('readOnly', true)
+            frontMatter.readOnly = true
 
             axios.post('{{ route('run') }}', params)
                 .then((response) => {
