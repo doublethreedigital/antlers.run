@@ -9,78 +9,23 @@ use Symfony\Component\Yaml\Yaml;
 
 class RunController extends Controller
 {
-    public string $requestId = '';
-    public string $viewPath = '';
-    public string $viewContents = '';
-    public Request $request;
-    public string $response = '';
-
     public function __invoke(Request $request)
     {
-        dd($request);
+        $randomId = Uuid::uuid4();
 
-        $this->request = $request;
+        $content = $request->template;
+        File::put(resource_path("views/{$randomId}.antlers.html"), $content);
 
-        $this
-            ->initialPrep()
-            ->storeTempView()
-            ->parseView()
-            ->removeTempView();
+        $data = [
+            'current_date' => $now = now(),
+            'now' => $now,
+            'today' => $now,
+        ];
 
-        dd($this);
-
-        return $this->response;
-    }
-
-    protected function initialPrep(): self
-    {
-        dd('hhh');
-
-        $this->requestId = Uuid::uuid4();
-        $this->viewPath = resource_path('views/'.$this->requestId.'.antlers.html');
-
-        if ($this->request->has('frontMatter')) {
-            $this->viewContents = '---'.PHP_EOL.$this->request->frontMatter.PHP_EOL.'---'.PHP_EOL.$this->request->template;
-        } else {
-            $this->viewContents = $this->request->template;
+        if ($request->frontMatter !== '' && $request->frontMatter !== null) {
+            $data = array_merge(Yaml::parse($request->frontMatter), $data);
         }
 
-        return $this;
-    }
-
-    protected function storeTempView(): self
-    {
-        File::put($this->viewPath, $this->viewContents);
-
-        dd('hhh');
-
-        return $this;
-    }
-
-    protected function parseView(): self
-    {
-        $frontMatter = $this->request->frontMatter === null ?
-            [] :
-            Yaml::parse($this->request->frontMatter);
-
-        dd('www');
-
-        $this->response = view(
-            $this->requestId,
-            array_merge($frontMatter, [
-                'current_date' => $now = now(),
-                'now' => $now,
-                'today' => $now,
-            ])
-        )->render();
-
-        return $this;
-    }
-
-    protected function removeTempView(): self
-    {
-        File::delete(str_replace('html.', 'html', $this->viewPath));
-
-        return $this;
+        return view($randomId, $data);
     }
 }
