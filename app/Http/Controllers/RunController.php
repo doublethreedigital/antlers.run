@@ -14,7 +14,7 @@ class RunController extends Controller
         $randomId = Uuid::uuid4();
 
         $content = $request->template;
-        File::put(resource_path("views/{$randomId}.antlers.html"), $content);
+        File::put(resource_path("views/fiddles/{$randomId}.antlers.html"), $content);
 
         $data = [
             'current_date' => $now = now(),
@@ -26,6 +26,6 @@ class RunController extends Controller
             $data = array_merge(Yaml::parse($request->frontMatter), $data);
         }
 
-        return view($randomId, $data);
+        return view("fiddles.{$randomId}", $data);
     }
 }
