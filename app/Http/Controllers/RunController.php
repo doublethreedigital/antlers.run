@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\Yaml\Yaml;
@@ -25,6 +26,8 @@ class RunController extends Controller
         if ($request->frontMatter !== '' && $request->frontMatter !== null) {
             $data = array_merge(Yaml::parse($request->frontMatter), $data);
         }
+
+        Cache::put('fiddles_created', Cache::has('fiddles_created') ? Cache::get('fiddles_created') + 1 : 1);
 
         return view("fiddles.{$randomId}", $data);
     }
