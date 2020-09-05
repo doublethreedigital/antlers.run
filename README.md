@@ -4,7 +4,7 @@
 
 ## About
 
-The [Antlers Fiddle](https://antlers-fiddle.duncanm.dev) is kindna like CodePen or JSFiddle but for Antlers, the templating language that comes from Statamic. You can set the Antlers template you want to parse and some front matter data you'd like to use.
+[Antlers Fiddle](https://antlers-fiddle.duncanm.dev) is kindna like CodePen or JSFiddle but for Antlers, the templating language that comes from Statamic. You can set the Antlers template you want to parse and some front matter data you'd like to use.
 
 Under the hood, this project uses the *same* parser stuff that Statamic would use when parsing normal views in a normal site. However there are a few limitations:
 
