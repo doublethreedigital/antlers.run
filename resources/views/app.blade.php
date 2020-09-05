@@ -24,9 +24,11 @@
     <meta property="twitter:description" content="An online playground for Antlers, Statamic's templating language.">
     <meta property="twitter:image" content="https://antlers-fiddle.duncanm.dev/social.png">
 
-    <!-- Fathom - beautiful, simple website analytics -->
-    <script src="https://bear.duncanm.dev/script.js" site="UUSKXPZQ" defer></script>
-    <!-- / Fathom -->
+    @if(app()->environment() === 'production')
+        <!-- Fathom - beautiful, simple website analytics -->
+        <script src="https://bear.duncanm.dev/script.js" site="UUSKXPZQ" defer></script>
+        <!-- / Fathom -->
+    @endif
 </head>
 <body class="min-h-screen w-full overflow-hidden font-fira">
     <header id="header" class="bg-statamic-hot-pink w-full flex flex-row items-center justify-between py-2">
