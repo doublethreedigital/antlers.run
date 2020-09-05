@@ -132,6 +132,7 @@
 
             codemirror.setOption('readOnly', true)
             frontMatter.readOnly = true
+            window.fathom.trackGoal('GWA1WCOK', 0);
 
             axios.post('{{ route('run') }}', params)
                 .then((response) => {
@@ -144,6 +145,7 @@
                 .catch((error) => {
                     codemirror.setOption('readOnly', false)
                     frontMatter.readOnly = false
+                    window.fathom.trackGoal('YT9HMPXN', 0);
 
                     alert(error)
                 })
