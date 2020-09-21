@@ -18,3 +18,4 @@ public/css/*.css
 public/js/*.js
 
 users/*.yaml
+package-lock.json
