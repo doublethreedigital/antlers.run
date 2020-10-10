@@ -7,20 +7,20 @@
             </div>
 
             <MonacoEditor
-                v-if="view.currentTab === 'template'"
+                v-show="view.currentTab === 'template'"
                 theme="vs-dark"
                 language="javascript"
-                value="// Welcome to Antlers Fiddle!!"
+                :value="request.template"
                 :options="options"
                 @change="onTemplateChange"
             >
             </MonacoEditor>
 
             <MonacoEditor
-                v-else-if="view.currentTab === 'frontMatter'"
+                v-else-show="view.currentTab === 'frontMatter'"
                 theme="vs-dark"
                 language="javascript"
-                value="# Front matter"
+                :value="request.frontMatter"
                 :options="options"
                 @change="onFrontMatterChange"
             >
