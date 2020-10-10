@@ -17,36 +17,6 @@
 }
 
 /**
-    Base/Common Styles
-*/
-
-@screen md {
-    .app-height {
-        height: calc(100vh - 49px);
-    }
-}
-
-/**
-    Mobile-ness
-*/
-
-.h-half {
-    height: calc(100vh / 2);
-}
-
-/**
-    CodeMirror
-*/
-
-/* @import "https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.57.0/codemirror.min.css"; */
-@import "codemirror/theme.css";
-
-.CodeMirror {
-    width: 100% !important;
-    height: 100% !important;
-}
-
-/**
     Button component
     - stolen from statamic.com
 */

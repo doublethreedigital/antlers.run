@@ -24,7 +24,9 @@ class RunController extends Controller
         ];
 
         if ($request->frontMatter !== '' && $request->frontMatter !== null) {
-            $data = array_merge(Yaml::parse($request->frontMatter), $data);
+            if (Yaml::parse($request->frontMatter) !== null) {
+                $data = array_merge(Yaml::parse($request->frontMatter), $data);
+            }
         }
 
         Cache::put('fiddles_created', Cache::has('fiddles_created') ? Cache::get('fiddles_created') + 1 : 1);

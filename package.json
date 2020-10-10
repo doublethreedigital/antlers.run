@@ -13,9 +13,13 @@
         "axios": "^0.20.0",
         "codemirror": "^5.57.0",
         "cross-env": "^7.0.2",
+        "emmet-monaco-es": "^4.4.2",
         "laravel-mix": "^5.0.5",
+        "monaco-editor-vue": "^1.0.10",
         "tailwindcss": "^1.7.3",
-        "vue": "^2.6.12"
+        "vue": "^2.6.12",
+        "vue-router": "^3.4.6",
+        "ziggy-js": "^0.9.4"
     },
     "devDependencies": {
         "vue-template-compiler": "^2.6.12"
