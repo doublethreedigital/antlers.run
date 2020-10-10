@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RunController;
+use App\Http\Controllers\SharedFiddleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'app');
-Route::view('/statamic-home', 'statamic-home');
 Route::post('/run', [RunController::class, '__invoke'])->name('run');
+
+Route::name('shared-fiddles.')->prefix('/shared-fiddles')->group(function () {
+    Route::post('/create', [SharedFiddleController::class, 'store'])->name('store');
+    Route::get('/{sharedFiddle}', [SharedFiddleController::class, 'show'])->name('show');
+});

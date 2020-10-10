@@ -18,7 +18,8 @@
     <meta property="twitter:image" content="https://antlers-fiddle.duncanm.dev/social.png">
 
     <script>
-        window.csrfToken = '{{ csrf_token() }}'
+        window.csrfToken = '{{ csrf_token() }}';
+        window.domain = '{{ config('app.url') }}';
     </script>
     @routes
     @if(app()->environment() === 'production')

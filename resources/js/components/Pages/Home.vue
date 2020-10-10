@@ -1,13 +1,13 @@
 <template>
     <div class="flex flex-row min-h-screen">
         <div class="" style="width: 50%;">
-            <div class="bg-black p-1">
+            <div class="bg-statamic-fresh-mint p-1">
                 <button class="text-white mx-4 text-sm focus:outline-none" @click="view.currentTab = 'template'">Template</button>
                 <button class="text-white mx-4 text-sm focus:outline-none" @click="view.currentTab = 'frontMatter'">Front matter</button>
             </div>
 
             <MonacoEditor
-                v-show="view.currentTab === 'template'"
+                v-if="view.currentTab === 'template'"
                 theme="vs-dark"
                 language="javascript"
                 :value="request.template"
@@ -17,7 +17,7 @@
             </MonacoEditor>
 
             <MonacoEditor
-                v-else-show="view.currentTab === 'frontMatter'"
+                v-if="view.currentTab === 'frontMatter'"
                 theme="vs-dark"
                 language="javascript"
                 :value="request.frontMatter"
@@ -45,7 +45,7 @@ import MonacoEditor from 'monaco-editor-vue'
 import axios from 'axios'
 
 export default {
-    name: 'app',
+    name: 'home',
 
     components: {
         MonacoEditor
@@ -53,12 +53,6 @@ export default {
 
     data() {
         return {
-            request: {
-                template: '',
-                frontMatter: '',
-                csrf_token: window.csrfToken
-            },
-
             view: {
                 currentTab: 'template'
             },
@@ -68,14 +62,26 @@ export default {
         }
     },
 
+    computed: {
+        request() {
+            return this.$store.state.request
+        }
+    },
+
     methods: {
         onTemplateChange(value) {
-            this.request.template = value
+            this.$store.dispatch('updateRequest', {
+                template: value
+            })
+
             this.updateFiddle()
         },
 
         onFrontMatterChange(value) {
-            this.request.frontMatter = value
+            this.$store.dispatch('updateRequest', {
+                frontMatter: value
+            })
+
             this.updateFiddle()
         },
 
@@ -92,6 +98,10 @@ export default {
 
     mounted() {
         this.updateFiddle()
+
+        this.$store.dispatch('updateRequest', {
+            csrf_token: window.csrfToken,
+        })
     }
 }
 </script>
