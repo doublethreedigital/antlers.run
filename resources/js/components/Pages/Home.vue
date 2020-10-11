@@ -97,11 +97,24 @@ export default {
     },
 
     mounted() {
-        this.updateFiddle()
-
         this.$store.dispatch('updateRequest', {
             csrf_token: window.csrfToken,
         })
+
+        if (this.$route.params.sharedFiddle !== undefined) {
+            axios.get(route('shared-fiddles.show', {
+                sharedFiddle: this.$route.params.sharedFiddle
+            })).then((response) => {
+                this.$store.dispatch('updateRequest', {
+                    template: response.data.template,
+                    frontMatter: response.data.front_matter,
+                })
+            }).catch((error) => {
+                console.log('There was an issue fetching the shared fiddle.')
+            })
+        }
+
+        this.updateFiddle()
     }
 }
 </script>

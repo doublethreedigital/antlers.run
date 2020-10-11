@@ -11,7 +11,10 @@ const router = new VueRouter({
     routes: [
         {
             path: '*',
-            meta: { layout: 'auth' },
+            component: Home,
+        },
+        {
+            path: '/shared/:sharedFiddle',
             component: Home,
         }
     ],
