@@ -26,8 +26,10 @@ class SharedFiddleController extends Controller
         return $code;
     }
 
-    public function show(SharedFiddle $fiddle)
+    public function show($sharedFiddleCode)
     {
-        return $fiddle->toArray();
+        $sharedFiddle = SharedFiddle::where('code', $sharedFiddleCode)->first();
+
+        return $sharedFiddle->toArray();
     }
 }
