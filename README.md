@@ -1,10 +1,10 @@
-# Antlers Fiddle
+# Antlers.run
 
 > An online playground for Antlers, Statamic's templating language.
 
 ## About
 
-[Antlers Fiddle](https://antlers-fiddle.duncanm.dev) is kindna like CodePen or JSFiddle but for Antlers, the templating language that comes from Statamic. You can set the Antlers template you want to parse and some front matter data you'd like to use.
+[Antlers.run](https://antlers-fiddle.duncanm.dev) is kindna like CodePen or JSFiddle but for Antlers, the templating language that comes from Statamic. You can set the Antlers template you want to parse and some front matter data you'd like to use.
 
 Under the hood, this project uses the *same* parser stuff that Statamic would use when parsing normal views in a normal site. However there are a few limitations:
 
@@ -15,7 +15,7 @@ Under the hood, this project uses the *same* parser stuff that Statamic would us
 
 ## Installation
 
-1. Clone this repository `git@github.com:damcclean/antlers-fiddle.git`
+1. Clone this repository `git@github.com:doublethreedigital/antlers.run.git`
 2. Install Composer dependencies `composer install`
 3. Copy the `.env.example` file to `.env`, then run `php artisan key:generate`
 4. Install and build front-end assets `npm install && npm run production`
