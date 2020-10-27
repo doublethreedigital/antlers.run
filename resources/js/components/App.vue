@@ -1,7 +1,7 @@
 <template>
     <div>
         <header class="w-full bg-statamic-hot-pink py-3 px-4 flex flex-row items-center justify-between">
-            <h2 class="text-white font-bold">Antlers Fiddle</h2>
+            <h2 class="text-white font-bold">Antlers.run</h2>
 
             <div>
                 <span v-show="sharedSucessfully" class="mx-4 text-xs text-white font-bold">Link copied to clipboard</span>
