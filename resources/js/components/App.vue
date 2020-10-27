@@ -33,10 +33,17 @@ export default {
             this.sharedSucessfully = false
             this.sharedWithError = false
 
+            if (this.$store.state.request.template === '' && this.$store.state.request.frontMatter === '') {
+                this.sharedWithError = true
+                return
+            }
+
             axios.post(route('shared-fiddles.store'), this.$store.state.request)
                 .then((response) => {
                     this.sharedSucessfully = true
+                    
                     navigator.clipboard.writeText(window.domain+'/#/shared/'+response.data)
+                    window.fathom.trackGoal('FPUQODLR', 0)
                 })
                 .catch((error) => {
                     this.sharedWithError = true

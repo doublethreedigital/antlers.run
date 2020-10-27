@@ -89,9 +89,11 @@ export default {
             axios.post(route('run'), this.request)
                 .then((response) => {
                     this.result = response.data
+                    window.fathom.trackGoal('GWA1WCOK', 0)
                 })
                 .catch((error) => {
-                    // alert(error)
+                    window.fathom.trackGoal('YT9HMPXN', 0)
+                    // TODO: add error to bottom of iframe
                 })
         }
     },
@@ -102,6 +104,8 @@ export default {
         })
 
         if (this.$route.params.sharedFiddle !== undefined) {
+            window.fathom.trackGoal('FHXZR17H', 0)
+
             axios.get(route('shared-fiddles.show', {
                 sharedFiddle: this.$route.params.sharedFiddle
             })).then((response) => {

@@ -12,12 +12,6 @@ const store = new Vuex.Store({
         }
     },
 
-    // getters: {
-    //     getRequest(state) {
-    //         return state.request
-    //     }
-    // },
-
     mutations: {
         updateRequest(state, data) {
             state.request = {
