@@ -20,3 +20,7 @@ Under the hood, this project uses the *same* parser stuff that Statamic would us
 3. Copy the `.env.example` file to `.env`, then run `php artisan key:generate`
 4. Configure a database in your `.env` file, it's used to save shared fiddles.
 5. Install and build front-end assets `npm install && npm run production`
+
+## Contributing
+
+This project is open-source so everyone's welcome to contribute. We've got [a Trello board](https://trello.com/b/SvjfaQ3D/antlersrun) of feature requests and a flow of [Github issues](https://github.com/doublethreedigital/antlers.run/issues), filled with bugs.
