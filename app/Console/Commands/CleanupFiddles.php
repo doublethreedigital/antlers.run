@@ -8,7 +8,7 @@ use SplFileInfo;
 
 class CleanupFiddles extends Command
 {
-    protected $signature = 'antlers-fiddle:cleanup-fiddles';
+    protected $signature = 'app:cleanup-fiddles';
 
     protected $description = 'Clean up fiddles';
 
