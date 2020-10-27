@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('antlers-fiddle:cleanup-fiddles')
+        $schedule->command('app:cleanup-fiddles')
             ->hourly();
     }
 
