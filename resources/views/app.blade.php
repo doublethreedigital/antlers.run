@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Antlers Fiddle</title>
-    <meta name="title" content="Antlers Fiddle">
+    <title>Antlers.run</title>
+    <meta name="title" content="Antlers.run">
     <meta name="description" content="An online playground for Antlers, Statamic's templating language.">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://antlers-fiddle.duncanm.dev/">
-    <meta property="og:title" content="Antlers Fiddle">
+    <meta property="og:url" content="https://antlers.run/">
+    <meta property="og:title" content="Antlers.run">
     <meta property="og:description" content="An online playground for Antlers, Statamic's templating language.">
-    <meta property="og:image" content="https://antlers-fiddle.duncanm.dev/social.png">
 
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="http://antlers-fiddle.duncanm.dev/">
-    <meta property="twitter:title" content="Antlers Fiddle">
+    <meta property="twitter:url" content="https://antlers.run/">
+    <meta property="twitter:title" content="Antlers.run">
     <meta property="twitter:description" content="An online playground for Antlers, Statamic's templating language.">
-    <meta property="twitter:image" content="https://antlers-fiddle.duncanm.dev/social.png">
 
     <script>
         window.csrfToken = '{{ csrf_token() }}';
