@@ -2,7 +2,9 @@
     Tailwind CSS
 */
 
+/* purgecss start ignore */
 @tailwind base;
+/* purgecss end ignore */
 @tailwind components;
 @tailwind utilities;
 
@@ -10,6 +12,7 @@
     Fonts
 */
 
+/* purgecss start ignore */
 @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css);
 
 .font-fira {
@@ -50,3 +53,4 @@
         transform: translate(2px,2px);
     } */
 }
+/* purgecss end ignore */
