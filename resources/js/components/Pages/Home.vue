@@ -4,14 +4,14 @@
             <div class="bg-statamic-fresh-mint p-1">
                 <button 
                     class="mx-4 text-sm focus:outline-none" 
-                    :class="{ 'text-monaco-dark font-bold': view.currentTab === 'template', 'text-white': view.currentTab != 'template' }" 
+                    :class="{ 'text-monaco-dark font-bold' : view.currentTab === 'template', 'text-white' : view.currentTab != 'template' }" 
                     @click="view.currentTab = 'template'"
                 >
                     Template
                 </button>
                 <button 
                     class="mx-4 text-sm focus:outline-none" 
-                    :class="{ 'text-monaco-dark font-bold': view.currentTab === 'frontMatter', 'text-white': view.currentTab != 'frontMatter' }" 
+                    :class="{ 'text-monaco-dark font-bold' : view.currentTab === 'frontMatter', 'text-white' : view.currentTab != 'frontMatter' }" 
                     @click="view.currentTab = 'frontMatter'"
                 >
                     Front matter
