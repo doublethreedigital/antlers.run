@@ -16,6 +16,7 @@ yarn-error.log
 mix-manifest.json
 public/css/*.css
 public/js/*.js
+public/js/*.txt
 
 users/*.yaml
 package-lock.json
