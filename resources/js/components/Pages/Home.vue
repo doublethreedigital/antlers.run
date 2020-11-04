@@ -2,16 +2,16 @@
     <div class="flex flex-row min-h-screen">
         <div class="" style="width: 50%;">
             <div class="bg-statamic-fresh-mint p-1">
-                <button 
-                    class="mx-4 text-sm focus:outline-none" 
-                    :class="{ 'text-monaco-dark font-bold' : view.currentTab === 'template', 'text-white' : view.currentTab != 'template' }" 
+                <button
+                    class="mx-4 text-sm focus:outline-none"
+                    :class="{ 'text-monaco-dark font-bold' : view.currentTab === 'template', 'text-white' : view.currentTab != 'template' }"
                     @click="view.currentTab = 'template'"
                 >
                     Template
                 </button>
-                <button 
-                    class="mx-4 text-sm focus:outline-none" 
-                    :class="{ 'text-monaco-dark font-bold' : view.currentTab === 'frontMatter', 'text-white' : view.currentTab != 'frontMatter' }" 
+                <button
+                    class="mx-4 text-sm focus:outline-none"
+                    :class="{ 'text-monaco-dark font-bold' : view.currentTab === 'frontMatter', 'text-white' : view.currentTab != 'frontMatter' }"
                     @click="view.currentTab = 'frontMatter'"
                 >
                     Front matter
@@ -38,7 +38,7 @@
             >
             </MonacoEditor>
         </div>
-        <div class="bg-white" style="width: 50%;">
+        <div class="bg-white relative" style="width: 50%;">
             <iframe
                 :srcdoc="result"
                 class="w-full h-full"
@@ -46,8 +46,11 @@
                 allowfullscreen="false"
                 allowpaymentrequest="false"
                 referrerpolicy="no-referrer"
-                title="Result"
             ></iframe>
+
+            <div v-if="error" class="bg-black w-full fixed bottom-0 p-2">
+                <p class="text-white block max-w-2xl" v-html="error"></p>
+            </div>
         </div>
     </div>
 </template>
@@ -66,11 +69,12 @@ export default {
     data() {
         return {
             view: {
-                currentTab: 'template'
+                currentTab: 'template',
             },
 
             result: '',
-            options: {}
+            error: '',
+            options: {},
         }
     },
 
@@ -85,6 +89,15 @@ export default {
             this.$store.dispatch('updateRequest', {
                 template: value
             })
+
+            if (value.includes('---')) {
+                this.error = "⚠️ To use front-matter, please switch to the front matter tab."
+            }
+
+            if (value.includes('{{ collection')) {
+                this.error = "Antlers.run doesn't support collections. Remove the collections tag to resolve this error."
+                return
+            }
 
             this.updateFiddle()
         },
@@ -105,7 +118,6 @@ export default {
                 })
                 .catch((error) => {
                     window.fathom.trackGoal('YT9HMPXN', 0)
-                    // TODO: add error to bottom of iframe
                 })
         }
     },
