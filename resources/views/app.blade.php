@@ -19,12 +19,12 @@
         window.csrfToken = '{{ csrf_token() }}';
         window.domain = '{{ config('app.url') }}';
     </script>
+
     @routes
-    @if(app()->environment() === 'production')
-        <!-- Fathom - beautiful, simple website analytics -->
-        <script src="https://bear.duncanm.dev/script.js" site="UUSKXPZQ" defer></script>
-        <!-- / Fathom -->
-    @endif
+
+    <!-- Fathom - beautiful, simple website analytics -->
+    <script src="https://bear.duncanm.dev/script.js" site="UUSKXPZQ" defer></script>
+    <!-- / Fathom -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
