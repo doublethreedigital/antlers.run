@@ -129,7 +129,11 @@ export default {
         })
 
         if (this.$route.params.sharedFiddle !== undefined) {
-            window.fathom.trackGoal('FHXZR17H', 0)
+            try {
+                window.fathom.trackGoal('FHXZR17H', 0)
+            } catch {
+                console.log('Something went heads up pushing a goal to Fathom.')
+            }
 
             axios.get(route('shared-fiddles.show', {
                 sharedFiddle: this.$route.params.sharedFiddle
