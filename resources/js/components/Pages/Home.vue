@@ -57,6 +57,7 @@
 
 <script>
 import MonacoEditor from 'monaco-editor-vue'
+import { emmetHTML } from "emmet-monaco-es"
 import axios from 'axios'
 
 export default {
@@ -141,6 +142,8 @@ export default {
                 console.log('There was an issue fetching the shared fiddle.')
             })
         }
+
+        emmetHTML(monaco)
 
         this.updateFiddle()
     }
