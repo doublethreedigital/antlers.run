@@ -17,6 +17,8 @@ mix-manifest.json
 public/css/*.css
 public/js/*.js
 public/js/*.txt
+public/*.js
+public/fonts/vendor/monaco-editor/esm/vs/base/browser/ui/codiconLabel/codicon/codicon.ttf
 
 users/*.yaml
 package-lock.json

@@ -21,7 +21,7 @@
             <MonacoEditor
                 v-if="view.currentTab === 'template'"
                 theme="vs-dark"
-                language="javascript"
+                language="html"
                 :value="request.template"
                 :options="options"
                 @change="onTemplateChange"
@@ -31,7 +31,7 @@
             <MonacoEditor
                 v-if="view.currentTab === 'frontMatter'"
                 theme="vs-dark"
-                language="javascript"
+                language="yaml"
                 :value="request.frontMatter"
                 :options="options"
                 @change="onFrontMatterChange"

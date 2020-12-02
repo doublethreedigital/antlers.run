@@ -32,6 +32,11 @@
 </head>
 <body class="min-h-screen w-full overflow-hidden font-fira">
     <div id="app"></div>
+
+    <!-- App JavaScript & Monaco -->
     <script src="/js/app.js"></script>
+    <script src="/editor.worker.js"></script>
+    <script src="/html.worker.js"></script>
+    <script src="/ts.worker.js"></script>
 </body>
 </html>
