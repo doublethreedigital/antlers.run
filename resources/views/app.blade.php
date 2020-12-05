@@ -30,7 +30,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/app.css">
 </head>
-<body class="min-h-screen w-full overflow-hidden font-fira">
+<body class="min-h-screen w-full overflow-hidden">
     <div id="app"></div>
 
     <!-- App JavaScript & Monaco -->

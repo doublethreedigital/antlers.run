@@ -1,17 +1,24 @@
 <template>
-    <div>
-        <header class="w-full bg-statamic-hot-pink py-3 px-4 flex flex-row items-center justify-between">
-            <h2 class="text-white font-bold">Antlers.run</h2>
+    <div class="flex flex-row">
+        <div class="w-16 min-h-screen">
+            <div class="h-full flex flex-col space-y-6">
+                <div class="flex items-center justify-center py-3">
+                    <img class="w-8" src="/img/statamic.svg" alt="Antlers.run">
+                </div>
 
-            <div>
-                <span v-show="sharedSucessfully" class="mx-4 text-xs text-white font-bold">Link copied to clipboard</span>
-                <span v-show="sharedWithError" class="mx-4 text-xs text-white font-bold">There was an issue sharing your fiddle</span>
-
-                <button class="button focus:outline-none" @click="createSharedFiddle">Share</button>
+                <div class="flex flex-col">
+                    <button class="mb-2 focus:outline-none flex justify-center" @click="createSharedFiddle" alt="Share">
+                        <img class="h-8" src="/img/share.svg">
+                    </button>
+                    <button class="mb-2">I</button>
+                    <button class="mb-2">S</button>
+                </div>
             </div>
-        </header>
+        </div>
 
-        <router-view></router-view>
+        <div class="w-full min-h-screen">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
@@ -24,7 +31,7 @@ export default {
     data() {
         return {
             sharedSucessfully: false,
-            sharedWithError: false
+            sharedWithError: false,
         }
     },
 
@@ -41,7 +48,7 @@ export default {
             axios.post(route('shared-fiddles.store'), this.$store.state.request)
                 .then((response) => {
                     this.sharedSucessfully = true
-                    
+
                     navigator.clipboard.writeText(window.domain+'/#/shared/'+response.data)
                     window.fathom.trackGoal('FPUQODLR', 0)
                 })
