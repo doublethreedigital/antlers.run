@@ -10,7 +10,9 @@
                     <button class="mb-2 focus:outline-none flex justify-center" @click="createSharedFiddle" alt="Share">
                         <img class="h-8" src="/img/share.svg">
                     </button>
-                    <button class="mb-2">I</button>
+                    <button class="mb-2 focus:outline-none flex justify-center" @click="openInfoModal" alt="Information">
+                        <img class="h-8" src="/img/info.svg">
+                    </button>
                     <button class="mb-2">S</button>
                 </div>
             </div>
@@ -19,19 +21,28 @@
         <div class="w-full min-h-screen">
             <router-view></router-view>
         </div>
+
+        <info-modal v-show="infoModalOpen" @closed="infoModalOpen = false"></info-modal>
     </div>
 </template>
 
 <script>
 import axios from 'axios'
+import InfoModal from './Modals/InfoModal.vue'
 
 export default {
     name: 'app',
+
+    components: {
+        InfoModal,
+    },
 
     data() {
         return {
             sharedSucessfully: false,
             sharedWithError: false,
+
+            infoModalOpen: false,
         }
     },
 
@@ -55,7 +66,11 @@ export default {
                 .catch((error) => {
                     this.sharedWithError = true
                 })
-        }
+        },
+
+        openInfoModal() {
+            this.infoModalOpen = true
+        },
     }
 }
 </script>

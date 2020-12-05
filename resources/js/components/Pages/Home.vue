@@ -44,6 +44,7 @@
         </div>
         <div class="bg-white relative" style="width: 50%;">
             <iframe
+                title="Result"
                 :srcdoc="result"
                 class="w-full h-full"
                 frameborder="0"

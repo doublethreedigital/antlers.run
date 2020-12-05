@@ -13,7 +13,7 @@ module.exports = {
     options: {
       whitelist: []
     }
-  },  
+  },
   theme: {
     extend: {
         colors: {
