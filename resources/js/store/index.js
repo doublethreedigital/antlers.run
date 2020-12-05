@@ -13,7 +13,7 @@ const store = new Vuex.Store({
     the classes and it'll just start working.
 -->
 
-<div class=" bg-gray-200 flex justify-center items-center">
+<div class="min-h-screen bg-gray-200 flex justify-center items-center">
     <div class="max-w-lg">
         <h2 class="text-center text-2xl mb-2 font-medium">Antlers.run</h2>
         <p class="text-center text-gray-800">Antlers.run is an online playground for Antlers, Statamic's templating language. It's built for the community by the community.</p>
