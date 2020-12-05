@@ -13,7 +13,6 @@
                     <button class="mb-2 focus:outline-none flex justify-center" @click="openInfoModal" alt="Information">
                         <img class="h-8" src="/img/info.svg">
                     </button>
-                    <button class="mb-2">S</button>
                 </div>
             </div>
         </div>
@@ -22,49 +21,69 @@
             <router-view></router-view>
         </div>
 
+        <share-modal v-show="shareModalOpen" :sharing="sharing" @closed="shareModalOpen = false"></share-modal>
         <info-modal v-show="infoModalOpen" @closed="infoModalOpen = false"></info-modal>
     </div>
 </template>
 
 <script>
 import axios from 'axios'
+import ShareModal from './Modals/ShareModal.vue'
 import InfoModal from './Modals/InfoModal.vue'
 
 export default {
     name: 'app',
 
     components: {
+        ShareModal,
         InfoModal,
     },
 
     data() {
         return {
-            sharedSucessfully: false,
-            sharedWithError: false,
+            sharing: {
+                errors: false,
+                success: false,
+                url: null,
+            },
 
+            shareModalOpen: false,
             infoModalOpen: false,
         }
     },
 
     methods: {
         createSharedFiddle() {
-            this.sharedSucessfully = false
-            this.sharedWithError = false
+            this.sharing.errors = {
+                errors: false,
+                success: false,
+                url: null,
+            }
 
             if (this.$store.state.request.template === '' && this.$store.state.request.frontMatter === '') {
-                this.sharedWithError = true
+                this.sharing.errors = true
+                this.shareModalOpen = true
                 return
             }
 
             axios.post(route('shared-fiddles.store'), this.$store.state.request)
                 .then((response) => {
-                    this.sharedSucessfully = true
+                    console.log('not ')
+                    this.sharing = {
+                        errors: false,
+                        success: true,
+                        url: window.domain + '/#/shared/' + response.data
+                    }
 
-                    navigator.clipboard.writeText(window.domain+'/#/shared/'+response.data)
+                    this.shareModalOpen = true
+
+                    navigator.clipboard.writeText(shareUrl)
                     window.fathom.trackGoal('FPUQODLR', 0)
                 })
                 .catch((error) => {
-                    this.sharedWithError = true
+                    console.log('error')
+                    this.sharing.errors = true
+                    this.shareModalOpen = true
                 })
         },
 

@@ -1,29 +1,17 @@
 <template>
-    <div>
-        <div class="bg-brand-black bg-opacity-50 fixed z-10 inset-0 overflow-y-auto flex justify-center items-center">
-            <div class="bg-brand-white rounded-md p-6 min-w-1/2">
-                <div class="flex flex-row justify-end items-center w-full mb-6">
-                    <button @click="closeModal">
-                        <span>
-                            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M14.8653 1.63604L2.13735 14.364" stroke="black" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M2.1348 1.63604L14.8627 14.364" stroke="black" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </span>
-                    </button>
-                </div>
-                <p>info modal</p>
-            </div>
-        </div>
-    </div>
+    <base-modal @closed="$emit('closed', true)">
+        <h2 class="font-semibold text-lg text-gray-800">About Antlers.run</h2>
+        <p class="mb-2 text-gray-800 text-sm">Antlers.run is an online playground for Antlers, Statamic's templating language. Antlers.run is run by <a href="https://duncanm.dev">Duncan McClean</a> and has no affilation with Statamic or Wilderborn LLC.</p>
+        <a class="text-gray-600 text-sm font-semibold" href="https://github.com/doublethreedigital/antlers.run">View on GitHub</a>
+    </base-modal>
 </template>
 
 <script>
+import BaseModal from './BaseModal'
+
 export default {
-    methods: {
-        closeModal() {
-            this.$emit('closed', true)
-        },
+    components: {
+        BaseModal,
     },
 }
 </script>
