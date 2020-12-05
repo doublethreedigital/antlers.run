@@ -46,7 +46,7 @@
             <iframe
                 title="Result"
                 :srcdoc="result"
-                class="w-full h-full"
+                class="w-full h-full max-h-screen"
                 frameborder="0"
                 allowfullscreen="false"
                 allowpaymentrequest="false"
