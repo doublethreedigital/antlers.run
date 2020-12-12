@@ -1,17 +1,21 @@
 <template>
     <div class="flex flex-row min-h-screen">
-        <div class="" style="width: 50%;">
-            <div class="bg-statamic-fresh-mint p-1">
+        <div style="width: 50%;">
+            <div class="bg-monaco-dark space-x-6 pl-4 py-1 pb-2">
                 <button
-                    class="mx-4 text-sm focus:outline-none"
-                    :class="{ 'text-monaco-dark font-bold' : view.currentTab === 'template', 'text-white' : view.currentTab != 'template' }"
+                    class="text-sm text-white focus:outline-none p-1 border-b-2 border-transparent"
+                    :class="{
+                        'border-white' : view.currentTab === 'template'
+                    }"
                     @click="view.currentTab = 'template'"
                 >
                     Template
                 </button>
                 <button
-                    class="mx-4 text-sm focus:outline-none"
-                    :class="{ 'text-monaco-dark font-bold' : view.currentTab === 'frontMatter', 'text-white' : view.currentTab != 'frontMatter' }"
+                    class="text-sm text-white focus:outline-none p-1 border-b-2 border-transparent"
+                    :class="{
+                        'border-white' : view.currentTab === 'frontMatter'
+                    }"
                     @click="view.currentTab = 'frontMatter'"
                 >
                     Front matter
@@ -40,8 +44,9 @@
         </div>
         <div class="bg-white relative" style="width: 50%;">
             <iframe
+                title="Result"
                 :srcdoc="result"
-                class="w-full h-full"
+                class="w-full h-full max-h-screen"
                 frameborder="0"
                 allowfullscreen="false"
                 allowpaymentrequest="false"
@@ -75,7 +80,12 @@ export default {
 
             result: '',
             error: '',
-            options: {},
+            options: {
+                automaticLayout: true,
+                lineHeight: 25,
+                indentSize: 2,
+                tabSize: 2,
+            },
         }
     },
 

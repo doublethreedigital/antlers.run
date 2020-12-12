@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use Ramsey\Uuid\Uuid;
+use Statamic\View\View;
 use Symfony\Component\Yaml\Yaml;
 
 class RunController extends Controller
@@ -31,6 +32,11 @@ class RunController extends Controller
 
         Cache::put('fiddles_created', Cache::has('fiddles_created') ? Cache::get('fiddles_created') + 1 : 1);
 
-        return view("fiddles.{$randomId}", $data);
+        return View::make("fiddles/{$randomId}")
+            ->with($data)
+            ->layout('fiddle')
+            ->render();
+
+        // return view("fiddles.{$randomId}", $data);
     }
 }
