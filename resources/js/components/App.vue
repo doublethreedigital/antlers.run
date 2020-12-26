@@ -78,7 +78,6 @@ export default {
                     this.shareModalOpen = true
 
                     navigator.clipboard.writeText(shareUrl)
-                    window.fathom.trackGoal('FPUQODLR', 0)
                 })
                 .catch((error) => {
                     console.log('error')
