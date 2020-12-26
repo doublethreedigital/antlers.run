@@ -22,10 +22,6 @@
 
     @routes
 
-    <!-- Fathom - beautiful, simple website analytics -->
-    <script src="https://bear.duncanm.dev/script.js" site="UUSKXPZQ" defer></script>
-    <!-- / Fathom -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/app.css">
