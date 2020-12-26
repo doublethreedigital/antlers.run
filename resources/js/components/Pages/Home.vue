@@ -125,10 +125,6 @@ export default {
             axios.post(route('run'), this.request)
                 .then((response) => {
                     this.result = response.data
-                    window.fathom.trackGoal('GWA1WCOK', 0)
-                })
-                .catch((error) => {
-                    window.fathom.trackGoal('YT9HMPXN', 0)
                 })
         }
     },
@@ -139,12 +135,6 @@ export default {
         })
 
         if (this.$route.params.sharedFiddle !== undefined) {
-            try {
-                window.fathom.trackGoal('FHXZR17H', 0)
-            } catch {
-                console.log('Something went heads up pushing a goal to Fathom.')
-            }
-
             axios.get(route('shared-fiddles.show', {
                 sharedFiddle: this.$route.params.sharedFiddle
             })).then((response) => {
