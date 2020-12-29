@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="bg-black bg-opacity-50 fixed z-10 inset-0 overflow-y-auto flex justify-center items-center">
-            <div class="bg-white rounded-md p-6 w-1/4">
+            <div class="bg-white rounded-md p-6 lg:w-1/2 xl:w-1/4">
                 <div class="flex flex-row justify-end items-center w-full mb-6">
                     <button class="focus:outline-none" @click="closeModal">
                         <span>
