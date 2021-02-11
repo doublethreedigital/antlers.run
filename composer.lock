@@ -8356,16 +8356,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.5.2",
+            "version": "2.5.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "08668034beb185fa2ac6f09b1034eaa440952ace"
+                "reference": "e91d67353054bf827c64687fcac5ea44e4dcec54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/08668034beb185fa2ac6f09b1034eaa440952ace",
-                "reference": "08668034beb185fa2ac6f09b1034eaa440952ace",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/e91d67353054bf827c64687fcac5ea44e4dcec54",
+                "reference": "e91d67353054bf827c64687fcac5ea44e4dcec54",
                 "shasum": ""
             },
             "require": {
@@ -8429,7 +8429,7 @@
                 "issues": "https://github.com/facade/ignition/issues",
                 "source": "https://github.com/facade/ignition"
             },
-            "time": "2020-11-17T09:18:51+00:00"
+            "time": "2021-02-05T12:52:11+00:00"
         },
         {
             "name": "filp/whoops",
