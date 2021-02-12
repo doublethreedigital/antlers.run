@@ -17,7 +17,7 @@
         "laravel/tinker": "^2.0",
         "sentry/sentry-laravel": "^2.1",
         "statamic/cms": "3.0.*",
-        "tightenco/ziggy": "^0.9.4"
+        "tightenco/ziggy": "^1.0.5"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
