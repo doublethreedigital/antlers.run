@@ -1,5 +1,7 @@
 # Antlers.run
 
+**Antlers.run isn't currently being supported. Unfortunatley, the preformance of the app isn't very good.. if you'd like to take over this project, [drop me an email](mailto:duncan@doublethree.digital).**
+
 [Antlers.run](https://antlers.run) is like CodePen or JSFiddle but for Antlers, the templating language that comes from Statamic. You can set the Antlers template you want to parse and some front matter data you'd like to use.
 
 Under the hood, this project uses the *same* parser stuff that Statamic would use when parsing normal views in a normal site. However there are a few limitations:
@@ -23,4 +25,4 @@ Under the hood, this project uses the *same* parser stuff that Statamic would us
 
 ## Contributing
 
-This project is open-source so everyone's welcome to contribute. We've got [a Trello board](https://trello.com/b/SvjfaQ3D/antlersrun) of feature requests and a flow of [Github issues](https://github.com/doublethreedigital/antlers.run/issues), filled with bugs.
+This project is open-source so everyone's welcome to contribute. 
